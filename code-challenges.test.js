@@ -17,10 +17,10 @@
 
 describe("arrayRFIShuffler", () => {
     it("takes in an array, removes the first item from the array and shuffles the remaining items", () => {
-      expect(arrayRFIShuffler(colors1)).not.toEqual(["red", "yellow", "blue", "pink", "green"]);
-      expect(arrayRFIShuffler(colors2)).not.toEqual(["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]);
-    });
-});
+      expect(arrayRFIShuffler(colors2)).toEqual(expect.arrayContaining(["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]))
+      expect(arrayRFIShuffler(colors1)).toEqual(expect.arrayContaining(["yellow", "blue", "pink", "green"]))
+    })
+})
 // Good Fail: ReferenceError: arrayRFIShuffler is not defined
 
 const colors1 = ["purple", "blue", "green", "yellow", "pink"]
@@ -53,9 +53,7 @@ function arrayRFIShuffler (array) {
     return shuffledArray
 }
 
-// Did look up https://jestjs.io/docs/expect#expectarraycontainingarray . It worked, but I am uncertain if I performed it as intended.
-
-// Passed
+// Passed yarn jest
 
 
 // --------------------2) Create a function that takes in an object that contains up votes and down votes and returns the end tally.
@@ -88,4 +86,4 @@ function voteMachine (object) {
     return object.upVotes - object.downVotes
 }
 
-// Passed
+// Passed yarn jest
